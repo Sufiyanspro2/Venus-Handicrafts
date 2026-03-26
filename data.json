@@ -20,9 +20,13 @@
     { "name": "Handicraft Decorative", "icon": "fas fa-fan", "description": "Decorative masterpieces" },
     { "name": "Tablewares", "icon": "fas fa-utensils", "description": "Elegant dining essentials" },
     { "name": "Home Décor", "icon": "fas fa-couch", "description": "Beautiful home accents" },
-    { "name": "Candle Accessories", "icon": "fas fa-candle-holder", "description": "Ambient candle holders" },
+    { "name": "Candle Accessories",
+     "icon": "fa-solid fa-menorah",
+      "description": "Ambient candle holders" },
     { "name": "Metal Wall Art", "icon": "fas fa-palette", "description": "Stunning wall sculptures" },
-    { "name": "Ceramic Pottery", "icon": "fas fa-vase", "description": "Handcrafted ceramics" },
+    { "name": "Glass",
+     "icon": "fas fa-wine-bottle",
+      "description": "Glass Masterpieces" },
     { "name": "Stone Craft", "icon": "fas fa-gem", "description": "Natural stone artistry" }
   ],
   "gallery": [

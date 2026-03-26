@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Venus Handicrafts | Since 1972</title>
-  <!-- External CSS & JS Files -->
-  <link rel="stylesheet" href="styles.css">
   <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -26,18 +24,18 @@
       <i class="fas fa-bars"></i>
     </div>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home" class="nav-link">Home</a></li>
-      <li><a href="#about" class="nav-link">About us</a></li>
-      <li><a href="#products" class="nav-link">Handicrafts</a></li>
-      <li><a href="#gallery" class="nav-link">Gallery</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-      <li><a href="#sitemap" class="nav-link">Site Map</a></li>
-      <li><a href="#faq" class="nav-link">FAQs</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About us</a></li>
+      <li><a href="#products">Handicrafts</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#sitemap">Site Map</a></li>
+      <li><a href="#faq">FAQs</a></li>
     </ul>
   </div>
 </div>
 
-<!-- HOME section -->
+<!-- HOME section with image -->
 <section id="home">
   <div class="hero">
     <div class="container hero-grid">
@@ -47,39 +45,44 @@
         <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Collection →</button>
       </div>
       <div class="hero-img">
-        <i class="fas fa-hand-sparkles"></i>
+        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&h=500&fit=crop" alt="Handcrafted decorative items">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT US -->
+<!-- ABOUT US - Extended -->
 <section id="about">
   <div class="container">
     <h2 class="section-title">About Venus Handicrafts</h2>
     <div class="about-content">
       <p class="about-text"><strong>Certified Excellence Since 1972</strong><br> Venus Handicrafts stands as a hallmark of quality and artistic brilliance. We specialize in manufacturing and exporting exquisite decorative handicrafts — Iron, Glass, Brass, Wood, Aluminium, Home Décor, Tableware, and more. Our global presence and ever-increasing acceptance highlight our market goodwill. We blend tradition with contemporary design, delivering exceptional pieces to importers, wholesalers, and retailers worldwide.</p>
-      <p class="about-text">Each piece tells a story of skilled artisanship, sustainable practices, and commitment to timeless beauty. Our mission: enrich spaces with handcrafted soul.</p>
+      
+      <p class="about-text"><strong>Our Craftsmanship Legacy</strong><br> For over five decades, Venus Handicrafts has been a trusted name in the world of artisanal decor. Our journey began in the cultural heart of Pakistan, where generations of skilled artisans have passed down their techniques through family lineages. Today, we combine these traditional methods with modern design sensibilities to create pieces that resonate with both heritage and contemporary aesthetics. Each creation reflects the dedication and expertise of our master craftsmen who pour their heart into every detail.</p>
+      
+      <p class="about-text"><strong>Materials & Techniques</strong><br> We work with an extensive range of materials including premium-grade iron, hand-blown glass, antique-finish brass, sustainably sourced wood, and lightweight aluminium. Each material is carefully selected and undergoes rigorous quality checks before being transformed by our artisans. Our craftsmen employ techniques such as hand carving, metal embossing, glass etching, intricate filigree work, and traditional hammering methods to bring each design to life with authenticity and precision.</p>
+      
+      <p class="about-text"><strong>Global Reach & Commitment</strong><br> With distribution networks spanning across North America, Europe, the Middle East, and Southeast Asia, we take pride in delivering authentic Pakistani craftsmanship to discerning clients worldwide. Our commitment extends beyond products — we support artisan communities, promote sustainable practices, ensure ethical manufacturing standards, and actively work to preserve traditional craft techniques for future generations. Each piece tells a story of skilled artisanship, sustainable practices, and commitment to timeless beauty. Our mission: enrich spaces with handcrafted soul.</p>
     </div>
   </div>
 </section>
 
-<!-- HANDICRAFTS PRODUCTS -->
+<!-- HANDICRAFTS PRODUCTS - DATA FROM JSON -->
 <section id="products">
   <div class="container">
     <h2 class="section-title">Our Handicrafts Collection</h2>
-    <div class="products-grid" id="productGrid">
-      <div class="loading-spinner">Loading products...</div>
+    <div id="productsContainer" class="products-grid">
+      <div class="loader"><i class="fas fa-spinner fa-pulse"></i> Loading masterpieces...</div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY Section -->
+<!-- GALLERY Section - DATA FROM JSON -->
 <section id="gallery">
   <div class="container">
     <h2 class="section-title">Artistry Gallery</h2>
-    <div class="gallery-grid" id="galleryGrid">
-      <div class="loading-spinner">Loading gallery...</div>
+    <div id="galleryContainer" class="gallery-grid">
+      <div class="loader"><i class="fas fa-spinner fa-pulse"></i> Loading gallery...</div>
     </div>
   </div>
 </section>
@@ -91,14 +94,14 @@
     <div class="contact-flex">
       <div class="contact-info">
         <h3><i class="fas fa-map-marker-alt"></i> Head Office</h3>
-        <p>Venus Handicrafts Pvt. Ltd.<br>F-42, Export House, Jaipur - 302002, Rajasthan, India</p>
-        <p><i class="fas fa-phone-alt"></i> +91-141-4001122</p>
+        <p>Venus Handicrafts Pvt. Ltd.<br>F-42, Export House, Karachi - 75760, Sindh, Pakistan</p>
+        <p><i class="fas fa-phone-alt"></i> +92-21-4001122</p>
         <p><i class="fas fa-envelope"></i> exports@venushandicrafts.com</p>
         <p><i class="fas fa-globe"></i> www.venushandicrafts.com</p>
         <p><i class="fas fa-certificate"></i> ISO 9001:2015 | Certified Exporter</p>
       </div>
       <div class="contact-form">
-        <h3>Send Inquiry</h3>
+        <h3><i class="fas fa-paper-plane"></i> Send Inquiry</h3>
         <form id="inquiryForm">
           <div class="form-group"><input type="text" placeholder="Your Name" required id="nameInput"></div>
           <div class="form-group"><input type="email" placeholder="Email Address" required id="emailInput"></div>
@@ -111,35 +114,68 @@
   </div>
 </section>
 
-<!-- SITE MAP -->
-<section id="sitemap">
-  <div class="container">
-    <h2 class="section-title">Site Map</h2>
-    <div class="sitemap-flex">
-      <div class="sitemap-content">
-        <div class="sitemap-grid">
-          <div><strong>Navigation</strong><br><a href="#home">Home</a><br><a href="#about">About us</a><br><a href="#products">Handicrafts</a><br><a href="#gallery">Gallery</a></div>
-          <div><strong>Resources</strong><br><a href="#contact">Contact</a><br><a href="#faq">FAQs</a><br><a href="#sitemap">Site Map</a></div>
-          <div><strong>Product Families</strong><br>Iron | Glass | Brass | Wood | Aluminium | Decorative | Tablewares | Home Décor | Candle Accessories | Metal Art</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ SECTION -->
+<!-- FAQ SECTION - DATA FROM JSON -->
 <section id="faq">
   <div class="container">
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div id="faqContainer">
-      <div class="loading-spinner">Loading FAQs...</div>
+      <div class="loader"><i class="fas fa-spinner fa-pulse"></i> Loading insights...</div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER with Sitemap -->
 <footer>
-  <p>© 2025 Venus Handicrafts – Certified Manufacturer & Exporter since 1972. Crafting global impressions.</p>
-  <p><i class="fas fa-heart" style="color:#c6a15b;"></i> Handmade with tradition | Global shipping to importers, wholesalers & retailers</p>
+  <div class="footer-sitemap" id="sitemap">
+    <div class="sitemap-grid">
+      <div class="sitemap-col">
+        <h4><i class="fas fa-compass"></i> Navigation</h4>
+        <ul>
+          <li><a href="#home"><i class="fas fa-angle-right"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-angle-right"></i> About Us</a></li>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Handicrafts</a></li>
+          <li><a href="#gallery"><i class="fas fa-angle-right"></i> Gallery</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4><i class="fas fa-link"></i> Resources</h4>
+        <ul>
+          <li><a href="#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+          <li><a href="#faq"><i class="fas fa-angle-right"></i> FAQs</a></li>
+          <li><a href="#sitemap"><i class="fas fa-angle-right"></i> Site Map</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4><i class="fas fa-tag"></i> Categories</h4>
+        <ul>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Iron Collection</a></li>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Glass Collection</a></li>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Brass Collection</a></li>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Wood Collection</a></li>
+          <li><a href="#products"><i class="fas fa-angle-right"></i> Aluminium Collection</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
+        <h4><i class="fas fa-palette"></i> Site Map</h4>
+        <div class="product-tags" id="dynamicTags">
+          <span>Iron</span>
+          <span>Glass</span>
+          <span>Brass</span>
+          <span>Wood</span>
+          <span>Aluminium</span>
+          <span>Decorative</span>
+          <span>Tablewares</span>
+          <span>Home Décor</span>
+          <span>Candle Accessories</span>
+          <span>Metal Art</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>© 2026 Venus Handicrafts – Certified Manufacturer & Exporter since 1972. Crafting global impressions.</p>
+    <p><i class="fas fa-heart" style="color:#c6a15b;"></i> Handmade with tradition | Global shipping to importers, wholesalers & retailers</p>
+  </div>
 </footer>
 
 <script src="script.js"></script>
