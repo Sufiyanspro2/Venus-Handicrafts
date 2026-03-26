@@ -45,7 +45,7 @@
         <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Collection →</button>
       </div>
       <div class="hero-img">
-        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&h=500&fit=crop" alt="Handcrafted decorative items">
+        <img src="hero.jpg" alt="Venus Handicrafts masterpiece">
       </div>
     </div>
   </div>
@@ -77,12 +77,60 @@
   </div>
 </section>
 
-<!-- GALLERY Section - DATA FROM JSON -->
+<!-- GALLERY Section - STATIC HTML (directly embedded, not from JSON) -->
 <section id="gallery">
   <div class="container">
     <h2 class="section-title">Artistry Gallery</h2>
-    <div id="galleryContainer" class="gallery-grid">
-      <div class="loader"><i class="fas fa-spinner fa-pulse"></i> Loading gallery...</div>
+    <div class="gallery-grid" id="staticGalleryGrid">
+      <!-- Gallery cards are now directly in HTML as requested -->
+      <div class="gallery-card">
+        <img src="iron-sculptures.jpg" alt="Iron Sculptures" loading="lazy">
+        <i class="fas fa-hammer"></i>
+        <h3>Iron Sculptures</h3>
+        <p>Hand-forged iron art with antique finish</p>
+      </div>
+      <div class="gallery-card">
+        <img src="glass-vases.jpg" alt="Glass Vases" loading="lazy">
+        <i class="fas fa-glass-cheers"></i>
+        <h3>Glass Vases</h3>
+        <p>Hand-blown colored glass collection</p>
+      </div>
+      <div class="gallery-card">
+        <img src="brass-lamps.jpg" alt="Brass Lamps" loading="lazy">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Brass Lamps</h3>
+        <p>Intricate brass lanterns & mood lighting</p>
+      </div>
+      <div class="gallery-card">
+        <img src="wooden-carvings.jpg" alt="Wooden Carvings" loading="lazy">
+        <i class="fas fa-igloo"></i>
+        <h3>Wooden Carvings</h3>
+        <p>Hand-carved mango wood decor</p>
+      </div>
+      <div class="gallery-card">
+        <img src="aluminum-bowls" alt="Aluminium Bowls" loading="lazy">
+        <i class="fa-solid fa-bowl-food" style="color: #b28244;"></i>
+        <h3>Aluminium Bowls</h3>
+        <p>Modern minimalist serving bowls</p>
+      </div>
+      <div class="gallery-card">
+        <img src="decorative-trays.webp" alt="Decorative Trays" loading="lazy">
+        <i class="fas fa-th-large"></i>
+        <h3>Decorative Trays</h3>
+        <p>Metal & wood fusion trays</p>
+      </div>
+      <div class="gallery-card">
+        <img src="painted-plates.jpg" alt="Hand-painted Plates" loading="lazy">
+        <i class="fas fa-paintbrush-fine"></i>
+        <h3>Hand-painted Plates</h3>
+        <p>Ceramic art with traditional motifs</p>
+      </div>
+      <div class="gallery-card">
+        <img src="candle-holders.jpg" alt="Candle Holders" loading="lazy">
+        <i class="fas fa-fire"></i>
+        <h3>Candle Holders</h3>
+        <p>Brass & iron ambient holders</p>
+      </div>
     </div>
   </div>
 </section>

@@ -34,7 +34,7 @@
     { "title": "Glass Vases", "icon": "fas fa-glass-cheers", "subtitle": "artisan craft" },
     { "title": "Brass Lamps", "icon": "fas fa-lightbulb", "subtitle": "artisan craft" },
     { "title": "Wooden Carvings", "icon": "fas fa-igloo", "subtitle": "artisan craft" },
-    { "title": "Aluminium Bowls", "icon": "fas fa-bowl-food", "subtitle": "artisan craft" },
+    { "title": "Aluminium Bowls", "icon": "fa-solid fa-bowl-food", "subtitle": "artisan craft" },
     { "title": "Decorative Trays", "icon": "fas fa-th-large", "subtitle": "artisan craft" },
     { "title": "Hand-painted Plates", "icon": "fas fa-paintbrush-fine", "subtitle": "artisan craft" },
     { "title": "Candle Holders", "icon": "fas fa-fire", "subtitle": "artisan craft" }
@@ -66,3 +66,5 @@
     }
   ]
 }
+
+

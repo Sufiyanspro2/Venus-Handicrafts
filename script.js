@@ -55,21 +55,33 @@
     });
   }
 
-  // Fetch and render data from data.json
+  // Helper to escape HTML
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+      if (m === '&') return '&amp;';
+      if (m === '<') return '&lt;';
+      if (m === '>') return '&gt;';
+      return m;
+    }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+      return c;
+    });
+  }
+
+  // Fetch and render data from data.json (only products and FAQs; gallery is static)
   async function loadData() {
     try {
       const response = await fetch('data.json');
       if (!response.ok) throw new Error('Failed to load data.json');
       const data = await response.json();
 
-      // 1. Render Products Section
+      // 1. Render Products Section (from JSON)
       const productsContainer = document.getElementById('productsContainer');
       if (productsContainer && data.products && Array.isArray(data.products)) {
         productsContainer.innerHTML = '';
         data.products.forEach(product => {
           const card = document.createElement('div');
           card.className = 'product-card';
-          // Use icon from JSON if exists, fallback to default
           const iconClass = product.icon ? product.icon : 'fas fa-gem';
           card.innerHTML = `
             <i class="${iconClass}"></i>
@@ -82,39 +94,7 @@
         productsContainer.innerHTML = '<p>No product data available.</p>';
       }
 
-      // 2. Render Gallery Section (with images + icon + title/desc)
-      const galleryContainer = document.getElementById('galleryContainer');
-      if (galleryContainer && data.gallery && Array.isArray(data.gallery)) {
-        galleryContainer.innerHTML = '';
-        // Provided gallery images from unsplash to match product feel
-        const fallbackImages = [
-          "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=300&fit=crop",
-          "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
-          "https://images.unsplash.com/photo-1562329267-1d8f3ec6fad2?w=400&h=300&fit=crop",
-          "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400&h=300&fit=crop",
-          "https://images.unsplash.com/photo-1558367843-f08c1e9a16ae?w=400&h=300&fit=crop",
-          "https://images.unsplash.com/photo-1574702483862-ff4e6b2b7f3b?w=400&h=300&fit=crop"
-        ];
-        data.gallery.forEach((item, idx) => {
-          const card = document.createElement('div');
-          card.className = 'gallery-card';
-          const imgUrl = item.imageUrl || fallbackImages[idx % fallbackImages.length];
-          const iconClass = item.icon ? item.icon : 'fas fa-camera';
-          const title = item.title || 'Artisan Creation';
-          const subtitle = item.subtitle || (item.description || 'Handcrafted with love');
-          card.innerHTML = `
-            <img src="${imgUrl}" alt="${escapeHtml(title)}" loading="lazy">
-            <i class="${iconClass}"></i>
-            <h3>${escapeHtml(title)}</h3>
-            <p>${escapeHtml(subtitle)}</p>
-          `;
-          galleryContainer.appendChild(card);
-        });
-      } else if (galleryContainer) {
-        galleryContainer.innerHTML = '<p>Gallery data unavailable.</p>';
-      }
-
-      // 3. Render FAQ Section (using faqs array from JSON)
+      // 2. Render FAQ Section (using faqs array from JSON)
       const faqContainer = document.getElementById('faqContainer');
       if (faqContainer && data.faqs && Array.isArray(data.faqs)) {
         faqContainer.innerHTML = '';
@@ -137,10 +117,9 @@
         faqContainer.innerHTML = '<p>FAQs not available.</p>';
       }
 
-      // 4. Optionally enrich sitemap tags from product categories (dynamic)
+      // 3. Optionally enrich sitemap tags from product categories (dynamic)
       const tagsContainer = document.getElementById('dynamicTags');
       if (tagsContainer && data.products && Array.isArray(data.products)) {
-        // extract unique material-like tags from product names
         const keywords = ['Iron', 'Glass', 'Brass', 'Wood', 'Aluminium', 'Ceramic', 'Metal', 'Stone', 'Marble'];
         let existingSpans = Array.from(tagsContainer.querySelectorAll('span')).map(span => span.innerText);
         keywords.forEach(kw => {
@@ -154,7 +133,7 @@
 
     } catch (error) {
       console.error('Error loading data.json:', error);
-      // Fallback: show static content if JSON fails to load but keep user experience
+      // Fallback for products and FAQs only (gallery remains static, no fallback needed)
       const productsContainer = document.getElementById('productsContainer');
       if (productsContainer) {
         productsContainer.innerHTML = `
@@ -164,17 +143,6 @@
           <div class="product-card"><i class="fas fa-utensils"></i><h3>Aluminium Serving Tray</h3><p>Modern minimalist design</p></div>
           <div class="product-card"><i class="fas fa-wine-bottle"></i><h3>Glass Decorative Bowl</h3><p>Hand-blown colored glass</p></div>
           <div class="product-card"><i class="fas fa-paw"></i><h3>Metal Elephant Sculpture</h3><p>Brass & iron fusion</p></div>
-        `;
-      }
-      const galleryContainer = document.getElementById('galleryContainer');
-      if (galleryContainer) {
-        galleryContainer.innerHTML = `
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=400&h=300&fit=crop"><i class="fas fa-mug-hot"></i><h3>Handcrafted Ceramic Pottery</h3><p>Traditional hand-painted ceramic</p></div>
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"><i class="fas fa-trophy"></i><h3>Brass Artifacts Collection</h3><p>Elegant brass decor items</p></div>
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1562329267-1d8f3ec6fad2?w=400&h=300&fit=crop"><i class="fas fa-tree"></i><h3>Wooden Masterpieces</h3><p>Exquisite hand-carved wood</p></div>
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400&h=300&fit=crop"><i class="fas fa-wine-bottle"></i><h3>Art Glass Collection</h3><p>Hand-blown glass art</p></div>
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1558367843-f08c1e9a16ae?w=400&h=300&fit=crop"><i class="fas fa-cube"></i><h3>Metal Art Sculptures</h3><p>Contemporary metal art</p></div>
-          <div class="gallery-card"><img src="https://images.unsplash.com/photo-1574702483862-ff4e6b2b7f3b?w=400&h=300&fit=crop"><i class="fas fa-utensils"></i><h3>Decorative Tableware</h3><p>Elegant serving pieces</p></div>
         `;
       }
       const faqContainer = document.getElementById('faqContainer');
@@ -188,18 +156,5 @@
     }
   }
 
-  // Helper to escape HTML
-  function escapeHtml(str) {
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-      return c;
-    });
-  }
-
-  // Initialize data load
+  // Initialize data load (products & FAQs from JSON, gallery remains static HTML)
   loadData();
